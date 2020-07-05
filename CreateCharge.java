@@ -24,8 +24,7 @@ public class CreateCharge {
 	    }
 	    else
 	    {
-	    	
-	    	System.out.println(responseCode+"version 2");
+	    	System.out.println(responseCode);
 	    	urlCon.closeURLConnection();
 	    }
 	}

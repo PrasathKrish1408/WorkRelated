@@ -25,7 +25,7 @@ public class RefundCharge {
 	    }
 	    else
 	    {
-	    	System.out.println(responseCode+"\n"+urlCon.getResponseString());
+	    	System.out.println(responseCode);
 	    	urlCon.closeURLConnection();
 	    }
 	}
