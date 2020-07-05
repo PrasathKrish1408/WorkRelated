@@ -24,7 +24,7 @@ public class CreateCharge {
 	    }
 	    else
 	    {
-	    	System.out.println(responseCode);
+	    	System.out.println(responseCode+"Version 3");
 	    	urlCon.closeURLConnection();
 	    }
 	}
