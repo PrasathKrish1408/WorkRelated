@@ -51,15 +51,15 @@ public class CreateCharge implements StripeOperationTemplate{
 		    {
 		    	System.out.println(responseCode);
 		    }
-		} catch (IOException | ClassNotFoundException | SQLException e) {
+		} catch (IOException | SQLException e) {	
 			e.printStackTrace();
 		}
 		finally {
 	    	try {
 	    		urlCon.closeURLConnection();
-				db.closeDbConnection();
-			} catch (NullPointerException | SQLException e) {
+			} catch (NullPointerException e) {
 			}
+	    	db.closeDbConnection();
 		}
 		    
 	}

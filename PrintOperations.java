@@ -11,4 +11,13 @@ public class PrintOperations {
 	    		+ "\nReason : "+refund_Object.reason +" Status : "+refund_Object.status
 	    		);
 	}
+	public static void print(CustomerObject customer_Object) {
+		try {
+			System.out.println("Customer Details\nCustomer ID : "+customer_Object.id+" Name : "+ customer_Object.name +" Currency : "+customer_Object.currency
+		    		+ "\nDescription : "+customer_Object.description +" Email : "+customer_Object.email
+		    		);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
