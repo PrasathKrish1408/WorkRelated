@@ -1,7 +1,7 @@
 public class PrintOperations {
  
 	public static void print(ChargeObject charge_Object) {
-		System.out.println("Charge Details\nCharge ID : "+charge_Object.id+" Currency : "+charge_Object.currency +" Amount : "+charge_Object.amount
+		System.out.println("Charge Details\nCharge ID : "+charge_Object.id+" Currency : "+charge_Object.currency +" Amount : "+charge_Object.amount+" Amount Refunded : "+charge_Object.amount_refunded
 	    		+ "\nDescription : "+charge_Object.description +" Customer : "+charge_Object.customer +" Status : "+charge_Object.status
 	    		+"\nPayment Intent : "+charge_Object.payment_intent +" Is Disputed : "+charge_Object.disputed
 	    		);

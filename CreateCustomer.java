@@ -1,4 +1,6 @@
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.ProtocolException;
 
@@ -26,15 +28,27 @@ public class CreateCustomer implements StripeOperationTemplate {
 		}
 	}
 	public void sendRequest() {
-		String parameter = "name=Prasath K&description=Test_Customer_Creation_002&email=prasathkrishvij03@gmail.com";
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		OutputStream os;
 			try {
+				System.out.println("Enter Customer name");
+				String name = reader.readLine();
+				System.out.println("Enter Customer email");
+				String email = reader.readLine();
+				System.out.println("Enter description about Customer");
+				String description = reader.readLine();
+				String parameter = "name="+name+"&description="+description+"&email="+email;
 				os = con.getOutputStream();
 				os.write(parameter.getBytes());
 			} catch (IOException | NullPointerException e) {
 				e.printStackTrace();
 			}
-		    
+		    finally {
+		    	try {
+					reader.close();
+				} catch (IOException e) {
+				}
+		    }
 	}
 	public void getAndProcessResponse() {
 		int responseCode = urlCon.getResponseCode();

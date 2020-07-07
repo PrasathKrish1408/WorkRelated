@@ -26,17 +26,25 @@ public class DatabaseOperations {
 		dbConnection.close();
 		return result;
 	}
-	public int insert(RefundObject refund_Object) throws SQLException {
+	public int insert(RefundObject refund_Object){
 		String query = "INSERT into refund_details ( refund_id,amount,charge,reason,status ) values( ?, ?, ?, ?, ?);";
-		PreparedStatement st = dbConnection.prepareStatement(query);
-		st.setString(1, refund_Object.id);
-		st.setInt(2, refund_Object.amount);
-		st.setString(3, refund_Object.charge);
-		st.setString(4, refund_Object.reason);
-		st.setString(5, refund_Object.status);
-		int result = st.executeUpdate();
-		st.close();
-		dbConnection.close();
+		PreparedStatement st = null;
+		int result = 0;
+		try {
+			st = dbConnection.prepareStatement(query);
+			st.setString(1, refund_Object.id);
+			st.setInt(2, refund_Object.amount);
+			st.setString(3, refund_Object.charge);
+			st.setString(4, refund_Object.reason);
+			st.setString(5, refund_Object.status);
+			result = st.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		finally {
+			closeStatement(st);
+			closeDbConnection();
+		}
 		return result;
 	}
 	public int insert(CustomerObject customer_Object) {
